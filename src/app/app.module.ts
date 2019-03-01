@@ -12,6 +12,11 @@ import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CreateeventComponent } from './createevent/createevent.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { PmoPageComponent } from './pmo-page/pmo-page.component';
+import { PocPageComponent } from './poc-page/poc-page.component';
+import { AssociatePageComponent } from './associate-page/associate-page.component';
+import { LeftNavComponent } from './left-nav/left-nav.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { CreateeventComponent } from './createevent/createevent.component';
     LoginComponent,
     AboutComponent,
     ContactComponent,
-    CreateeventComponent
+    CreateeventComponent,
+    AdminPageComponent,
+    PmoPageComponent,
+    PocPageComponent,
+    AssociatePageComponent,
+    LeftNavComponent
   ],
   imports: [
     BrowserModule,

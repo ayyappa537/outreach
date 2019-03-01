@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.loading = false;
         return;
     }else{
-      this.router.navigateByUrl("createevent");
+      this.router.navigateByUrl("adminPage");
     }
 
     setTimeout('2000',0,this.setLoading(false));

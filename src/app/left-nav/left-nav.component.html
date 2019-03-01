@@ -1,0 +1,16 @@
+<div *ngIf="page == 'admin'">
+    Hi Admin
+    <a class="nav-item nav-link" routerLink="createevent"  >Create Event</a>
+    <a routerLink="[ '/', {outlets: {'admin': ['createevent']}]">SECONDARY</a>
+
+    <a class="nav-item nav-link" href="#" >View Events</a>
+</div>
+<div *ngIf="page == 'pmo'">
+    Hi PMO
+</div>
+<div *ngIf="page == 'poc'">
+    Hi POC
+</div>
+<div *ngIf="page == 'associate'">
+    Hi Associate
+</div>left Nav Page
