@@ -17,6 +17,7 @@ import { PmoPageComponent } from './pmo-page/pmo-page.component';
 import { PocPageComponent } from './poc-page/poc-page.component';
 import { AssociatePageComponent } from './associate-page/associate-page.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
+import { ViewEventsComponent } from './view-events/view-events.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
     PmoPageComponent,
     PocPageComponent,
     AssociatePageComponent,
-    LeftNavComponent
+    LeftNavComponent,
+    ViewEventsComponent
   ],
   imports: [
     BrowserModule,
