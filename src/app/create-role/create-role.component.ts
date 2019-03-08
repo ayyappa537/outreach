@@ -26,6 +26,7 @@ export class CreateRoleComponent implements OnInit {
     this.createRoleForm = this.formBuilder.group({
       associateId: ['', Validators.required],
       associateName: ['', Validators.required],
+      password: ['', Validators.required],
       dob: ['', Validators.required],
       role: ['', Validators.required]
     });
@@ -36,8 +37,8 @@ export class CreateRoleComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.createRoleForm.controls; }
 
-  backClicked() {
-    this._location.back();
+  cancel() {
+    this.router.navigateByUrl("login");
   }
 
   onSubmit() {
@@ -52,6 +53,7 @@ export class CreateRoleComponent implements OnInit {
       this.createRoleInfo = new CreateRoleInfo;
       this.createRoleInfo.associateId = this.createRoleForm.value.associateId;
       this.createRoleInfo.associateName = this.createRoleForm.value.associateName;
+      this.createRoleInfo.password = this.createRoleForm.value.password;
       this.createRoleInfo.dob = this.createRoleForm.value.dob;
       this.createRoleInfo.role = this.createRoleForm.value.role;
       

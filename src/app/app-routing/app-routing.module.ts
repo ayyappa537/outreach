@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'createrole', component: CreateRoleComponent},
   { path: 'adminPage', component: AdminPageComponent, children:[
     { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
     { path: 'viewevents', component: ViewEventsComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
     { path: 'myevents', component: MyEventsComponent},
     { path: 'registerevent', component: RegisterEventComponent}
   ]}
+  
   
   
 ];
