@@ -44,7 +44,15 @@ export class LoginComponent implements OnInit {
       this.loading = false;
         return;
     }else{
-      this.router.navigateByUrl("adminPage");
+      if(this.loginForm.value.username == "admin"){
+        this.router.navigateByUrl("adminPage");
+      }else if(this.loginForm.value.username == "pmo"){
+        this.router.navigateByUrl("pmoPage");
+      }else if(this.loginForm.value.username == "poc"){
+        this.router.navigateByUrl("pocPage");
+      }else if(this.loginForm.value.username == "associate"){
+        this.router.navigateByUrl("associatePage");
+      }
     }
 
     setTimeout('2000',0,this.setLoading(false));

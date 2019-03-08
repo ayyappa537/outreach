@@ -1,0 +1,31 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <form [formGroup]="createRoleForm" (ngSubmit)="onSubmit()">
+            <div class="flex-container">
+                <div>
+                    Employee ID: 
+                    <input type="text" name="empId">
+                </div>
+                <div>
+                    Employee Name:
+                    <span></span>
+                </div>
+                <div>
+                    Role Name:
+                    <select>
+                        <option>Admin</option>
+                        <option>PMO</option>
+                        <option>POC</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="button" name="createRole" value="Create Role">
+                    <input type="button" name="backEvent" value="Back" (click)="backClicked()">
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -11,6 +11,10 @@ import { PmoPageComponent } from '../pmo-page/pmo-page.component';
 import { PocPageComponent } from '../poc-page/poc-page.component';
 import { AssociatePageComponent } from '../associate-page/associate-page.component';
 import { ViewEventsComponent } from '../view-events/view-events.component';
+import { RegisterEventComponent } from '../register-event/register-event.component';
+import { MyEventsComponent } from '../my-events/my-events.component';
+import { FavoriteEventsComponent } from '../favorite-events/favorite-events.component';
+import { CreateRoleComponent } from '../create-role/create-role.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -18,13 +22,26 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminPage', component: AdminPageComponent, children:[
+    { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
     { path: 'viewevents', component: ViewEventsComponent},
-    { path: 'createevent', component: CreateeventComponent}
-    
+    { path: 'favoriteevents', component: FavoriteEventsComponent},
+    { path: 'createrole', component: CreateRoleComponent},
+    { path: 'createevent', component: CreateeventComponent}  
   ]},
-  { path: 'pmoPage', component: PmoPageComponent },
-  { path: 'pocPage', component: PocPageComponent },
-  { path: 'associatePage', component: AssociatePageComponent }
+  { path: 'pmoPage', component: PmoPageComponent , children:[
+    { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
+    { path: 'viewevents', component: ViewEventsComponent}
+  ]},
+  { path: 'pocPage', component: PocPageComponent , children:[
+    { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
+    { path: 'viewevents', component: ViewEventsComponent}
+  ]},
+  { path: 'associatePage', component: AssociatePageComponent , children:[
+    { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
+    { path: 'viewevents', component: ViewEventsComponent},
+    { path: 'myevents', component: MyEventsComponent},
+    { path: 'registerevent', component: RegisterEventComponent}
+  ]}
   
   
 ];

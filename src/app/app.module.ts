@@ -18,6 +18,10 @@ import { PocPageComponent } from './poc-page/poc-page.component';
 import { AssociatePageComponent } from './associate-page/associate-page.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
 import { ViewEventsComponent } from './view-events/view-events.component';
+import { RegisterEventComponent } from './register-event/register-event.component';
+import { MyEventsComponent } from './my-events/my-events.component';
+import { FavoriteEventsComponent } from './favorite-events/favorite-events.component';
+import { CreateRoleComponent } from './create-role/create-role.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ViewEventsComponent } from './view-events/view-events.component';
     PocPageComponent,
     AssociatePageComponent,
     LeftNavComponent,
-    ViewEventsComponent
+    ViewEventsComponent,
+    RegisterEventComponent,
+    MyEventsComponent,
+    FavoriteEventsComponent,
+    CreateRoleComponent
   ],
   imports: [
     BrowserModule,

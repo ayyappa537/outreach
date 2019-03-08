@@ -52,6 +52,12 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+.invalid {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
 
 td, th {
   border: 1px solid #ddd;

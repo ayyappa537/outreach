@@ -1,8 +1,9 @@
 <div *ngIf="page == 'admin'">
     Hi Admin
     <a class="nav-item nav-link" routerLink="viewevents" >View Events</a>
+    <a class="nav-item nav-link" routerLink="favoriteevents" >Favorite Events</a>
     <a class="nav-item nav-link" routerLink="createevent"  >Create Event</a>
-    
+    <a class="nav-item nav-link" routerLink="createrole" >Create Role</a>
 </div>
 <div *ngIf="page == 'pmo'">
     Hi PMO
@@ -10,7 +11,11 @@
 </div>
 <div *ngIf="page == 'poc'">
     Hi POC
+    <a class="nav-item nav-link" routerLink="viewevents" >View Events</a>
 </div>
 <div *ngIf="page == 'associate'">
     Hi Associate
+    <a class="nav-item nav-link" routerLink="viewevents" >View Events</a>
+    <a class="nav-item nav-link" routerLink="myevents" >My Events</a>
+    <a class="nav-item nav-link" routerLink="registerevent" >Register Event</a>
 </div>
