@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 })
 export class CreatebulkeventComponent implements OnInit {
 
+  uploadedFiles:number=0;
   arrayBuffer:any;
   file:File;
   incomingfile(event) 
@@ -31,6 +32,7 @@ export class CreatebulkeventComponent implements OnInit {
           var first_sheet_name = workbook.SheetNames[0];
           var worksheet = workbook.Sheets[first_sheet_name];
           console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
+          this.uploadedFiles = XLSX.utils.sheet_to_json(worksheet,{raw:true}).length;
       }
       fileReader.readAsArrayBuffer(this.file);
 }

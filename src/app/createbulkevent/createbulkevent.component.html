@@ -6,4 +6,8 @@
     <button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
 </div>
 
+<div *ngIf="uploadedFiles>0">
+  <span>Successfully Uploaded</span> {{uploadedFiles}} <span>Files</span>
+</div>
+
   
