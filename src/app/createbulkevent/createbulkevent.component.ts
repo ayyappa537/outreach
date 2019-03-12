@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 })
 export class CreatebulkeventComponent implements OnInit {
 
+  failure:boolean=false;
   uploadedFiles:number=0;
   arrayBuffer:any;
   file:File;
@@ -23,6 +24,7 @@ export class CreatebulkeventComponent implements OnInit {
   Upload() {
     let fileReader = new FileReader();
       fileReader.onload = (e) => {
+        
           this.arrayBuffer = fileReader.result;
           var data = new Uint8Array(this.arrayBuffer);
           var arr = new Array();
@@ -34,7 +36,11 @@ export class CreatebulkeventComponent implements OnInit {
           console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
           this.uploadedFiles = XLSX.utils.sheet_to_json(worksheet,{raw:true}).length;
       }
-      fileReader.readAsArrayBuffer(this.file);
+      if(this.uploadedFiles>0){
+        fileReader.readAsArrayBuffer(this.file);
+      }else{
+        this.failure = true;
+      }
 }
 
   readfile() {

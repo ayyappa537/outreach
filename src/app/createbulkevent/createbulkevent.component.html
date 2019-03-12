@@ -7,7 +7,11 @@
 </div>
 
 <div *ngIf="uploadedFiles>0">
-  <span>Successfully Uploaded</span> {{uploadedFiles}} <span>Files</span>
+  <span>Successfully Uploaded</span> {{uploadedFiles}} <span>Records</span>
+</div>
+
+<div *ngIf="failure">
+  <span>Failed to Uploaded File</span>
 </div>
 
   
