@@ -15,6 +15,8 @@ import { RegisterEventComponent } from '../register-event/register-event.compone
 import { MyEventsComponent } from '../my-events/my-events.component';
 import { FavoriteEventsComponent } from '../favorite-events/favorite-events.component';
 import { CreateRoleComponent } from '../create-role/create-role.component';
+import { CreatebulkeventComponent } from '../createbulkevent/createbulkevent.component';
+import { CreatebulkregistrationComponent } from '../createbulkregistration/createbulkregistration.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -27,7 +29,8 @@ const routes: Routes = [
     { path: 'viewevents', component: ViewEventsComponent},
     { path: 'favoriteevents', component: FavoriteEventsComponent},
     { path: 'createrole', component: CreateRoleComponent},
-    { path: 'createevent', component: CreateeventComponent}  
+    { path: 'createevent', component: CreateeventComponent},
+    { path: 'createbulkevent', component: CreatebulkeventComponent}
   ]},
   { path: 'pmoPage', component: PmoPageComponent , children:[
     { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
@@ -41,7 +44,8 @@ const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'viewevents' },
     { path: 'viewevents', component: ViewEventsComponent},
     { path: 'myevents', component: MyEventsComponent},
-    { path: 'registerevent', component: RegisterEventComponent}
+    { path: 'registerevent', component: RegisterEventComponent},
+    { path: 'createbulkregistration', component: CreatebulkregistrationComponent}
   ]}
   
   

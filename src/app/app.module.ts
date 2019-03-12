@@ -22,6 +22,8 @@ import { RegisterEventComponent } from './register-event/register-event.componen
 import { MyEventsComponent } from './my-events/my-events.component';
 import { FavoriteEventsComponent } from './favorite-events/favorite-events.component';
 import { CreateRoleComponent } from './create-role/create-role.component';
+import { CreatebulkeventComponent } from './createbulkevent/createbulkevent.component';
+import { CreatebulkregistrationComponent } from './createbulkregistration/createbulkregistration.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CreateRoleComponent } from './create-role/create-role.component';
     RegisterEventComponent,
     MyEventsComponent,
     FavoriteEventsComponent,
-    CreateRoleComponent
+    CreateRoleComponent,
+    CreatebulkeventComponent,
+    CreatebulkregistrationComponent
   ],
   imports: [
     BrowserModule,

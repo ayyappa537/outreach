@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Renderer } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-left-nav',
@@ -8,9 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LeftNavComponent implements OnInit {
 
   @Input() page:String;
-  constructor() { }
+  constructor(private render:Renderer,private router: Router) { }
 
   ngOnInit() {
+  }
+
+  clickActive(event:any,path:any){
+    event.preventDefault()
+    this.render.setElementClass(event.target,"active",false);
+    this.router.navigateByUrl("/"+path);
   }
 
 }
