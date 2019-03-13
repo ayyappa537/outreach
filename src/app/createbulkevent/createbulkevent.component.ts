@@ -36,8 +36,10 @@ export class CreatebulkeventComponent implements OnInit {
           console.log(XLSX.utils.sheet_to_json(worksheet,{raw:true}));
           this.uploadedFiles = XLSX.utils.sheet_to_json(worksheet,{raw:true}).length;
       }
-      if(this.uploadedFiles>0){
+      if(null != this.file && this.file.size>0){
         fileReader.readAsArrayBuffer(this.file);
+        this.failure = false;
+        return true;
       }else{
         this.failure = true;
       }

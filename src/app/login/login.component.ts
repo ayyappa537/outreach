@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -9,7 +9,8 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
+    failure:boolean=false;
+    loginForm: FormGroup;
     loading = false;
     submitted = false;
     returnUrl: string;
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private render:Renderer,
   ) { }
 
   ngOnInit() {
@@ -52,6 +54,8 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("pocPage");
       }else if(this.loginForm.value.username == "associate"){
         this.router.navigateByUrl("associatePage");
+      }else{
+        this.failure = true;
       }
     }
 
@@ -60,6 +64,12 @@ export class LoginComponent implements OnInit {
 
   setLoading(value:Boolean){
     this.loading = false;
+  }
+
+  clickActive(event:any,path:any){
+    event.preventDefault()
+    this.render.setElementClass(event.target,"active",false);
+    this.router.navigateByUrl("/"+path);
   }
 
 

@@ -6,12 +6,12 @@
     <button type="button" class="btn btn-info" (click)="Upload()" >Upload</button>
 </div>
 
-<div *ngIf="uploadedFiles>0">
+<div style="color:green;" *ngIf="uploadedFiles>0">
   <span>Successfully Uploaded</span> {{uploadedFiles}} <span>Records</span>
 </div>
 
-<div *ngIf="failure">
-  <span>Failed to Uploaded File</span>
+<div style="color:red;" *ngIf="failure">
+  <span>Failed to Uploaded File! Please Upload Correct File.</span>
 </div>
 
   
