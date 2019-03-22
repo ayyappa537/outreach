@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
+import {saveAs} from 'file-saver';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
+
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';
 @Component({
   selector: 'app-createbulkevent',
   templateUrl: './createbulkevent.component.html',
@@ -16,7 +21,7 @@ export class CreatebulkeventComponent implements OnInit {
     {
     this.file= event.target.files[0]; 
     }
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
   }
@@ -45,19 +50,44 @@ export class CreatebulkeventComponent implements OnInit {
       }
 }
 
-  readfile() {
+
+
+Download() {
     // You can change the file path in the assets folder
-    let url = "/assets/template.xlsx";
+    let url = "src/app/createbulkevent/Create Future Events Bulk Upload.xlsx";
     let req = new XMLHttpRequest();
     req.open("GET", url, true);
     req.responseType = "arraybuffer";
     req.onload =  (e) => {
         let data = new Uint8Array(req.response);
-        let workbook = XLSX.read(data, {type: "array"});
-        const excelBuffer: any = XLSX.write(workbook, {bookType: 'xlsx', type: 'array'});
+        //let workbook = XLSX.read(data, {type: "array"});
+        let workbook = XLSX.read(req.response, {type: "array"});
+        const excelBuffer: any = XLSX.writeFile(workbook,"Create Future Events Bulk Upload.xlsx", {bookType: 'xlsx', type: 'array'});
         // TO export the excel file
         console.log(excelBuffer);
+       // this.saveAsExcelFile(excelBuffer, "Create Future Events Bulk Upload.xlsx")
     };
     req.send();
 }
+
+
+
+
+  public exportAsExcelFile(json: any[], excelFileName: string): void {
+    
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    console.log('worksheet',worksheet);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    //const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'buffer' });
+    console.log(excelBuffer);
+    
+  }
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], {
+      type: EXCEL_TYPE
+    });
+    saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+  }
+
 }
